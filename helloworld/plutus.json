@@ -1,0 +1,86 @@
+{
+  "preamble": {
+    "title": "hp/helloworld",
+    "description": "Aiken contracts for project 'hp/helloworld'",
+    "version": "0.0.0",
+    "plutusVersion": "v3",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.1.19+unknown"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "referral.referral.spend",
+      "datum": {
+        "title": "datum_opt",
+        "schema": {
+          "$ref": "#/definitions/referral~1Datum"
+        }
+      },
+      "redeemer": {
+        "title": "_redeemer",
+        "schema": {
+          "$ref": "#/definitions/referral~1Redeemer"
+        }
+      },
+      "compiledCode": "5901a101010029800aba2aba1aba0aab9faab9eaab9dab9a488888896600264653001300800198041804800cdc3a400530080024888966002600460106ea800e2653001300d00198069807000d6600266e1d20003009375400b15980098051baa0058a4d16402d1640209112cc004cdc3a400060186ea800a26464b3001980099b8f375c6024002911010000a50a51403515980099199119801001000912cc00400629422b30013371e6eb8c05400400e2946266004004602c00280810131bac301330143014301430143014301430143014301037540106eb8c04800a26464646644b3001300d30133754005159800980698099baa30173018003899b88375a602e60286ea8008006266e24dd6980b980a1baa002001404914a08090c054004dd6980a980b00219809980a00099809cc004c028c040dd5180a180a800d30103d87a8000a60103d8798000403c97ae0301037546026602860206ea8004c048c04cc04cc04cc04cc04cc04cc04cc03cdd5003c528201a8a5040346024002601a6ea8c040c034dd500145900b0c024dd5001c590070c020004c00cdd5004452689b2b20021",
+      "hash": "f62c6395a5fecd2189a823c23e514f8378499811922713d1f0fa42b1"
+    },
+    {
+      "title": "referral.referral.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "5901a101010029800aba2aba1aba0aab9faab9eaab9dab9a488888896600264653001300800198041804800cdc3a400530080024888966002600460106ea800e2653001300d00198069807000d6600266e1d20003009375400b15980098051baa0058a4d16402d1640209112cc004cdc3a400060186ea800a26464b3001980099b8f375c6024002911010000a50a51403515980099199119801001000912cc00400629422b30013371e6eb8c05400400e2946266004004602c00280810131bac301330143014301430143014301430143014301037540106eb8c04800a26464646644b3001300d30133754005159800980698099baa30173018003899b88375a602e60286ea8008006266e24dd6980b980a1baa002001404914a08090c054004dd6980a980b00219809980a00099809cc004c028c040dd5180a180a800d30103d87a8000a60103d8798000403c97ae0301037546026602860206ea8004c048c04cc04cc04cc04cc04cc04cc04cc03cdd5003c528201a8a5040346024002601a6ea8c040c034dd500145900b0c024dd5001c590070c020004c00cdd5004452689b2b20021",
+      "hash": "f62c6395a5fecd2189a823c23e514f8378499811922713d1f0fa42b1"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "aiken/crypto/VerificationKeyHash": {
+      "title": "VerificationKeyHash",
+      "dataType": "bytes"
+    },
+    "referral/Datum": {
+      "title": "Datum",
+      "anyOf": [
+        {
+          "title": "Datum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "owner",
+              "$ref": "#/definitions/aiken~1crypto~1VerificationKeyHash"
+            },
+            {
+              "title": "referral_hash",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "issued_at",
+              "$ref": "#/definitions/Int"
+            }
+          ]
+        }
+      ]
+    },
+    "referral/Redeemer": {
+      "title": "Redeemer",
+      "anyOf": [
+        {
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        }
+      ]
+    }
+  }
+}
